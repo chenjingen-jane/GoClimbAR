@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "wall": "my-gym-wall-1",
+  "aspect": 0.75,
+  "coordinate_system": "normalized image: origin top-left, x right, y down, 0..1",
+  "detector": "GymColorDetector",
+  "note": "Difficulty is estimated from image geometry only; it is not an official grade and says nothing about safety. Hold detection is heuristic unless a trained detector is used.",
+  "holds": [
+    {
+      "id": 0,
+      "x": 0.57038,
+      "y": 0.9583,
+      "confidence": 0.8671,
+      "type": "hold",
+      "color": "#64503C",
+      "group": "orange"
+    },
+    {
+      "id": 1,
+      "x": 0.35335,
+      "y": 0.91738,
+      "confidence": 0.7816,
+      "type": "hold",
+      "color": "#985E5E",
+      "group": "red"
+    },
+    {
+      "id": 2,
+      "x": 0.0793,
+      "y": 0.67073,
+      "confidence": 0.6923,
+      "type": "hold",
+      "color": "#6795A7",
+      "group": "cyan"
+    }
+  ],
+  "routes": [],
+  "warnings": [
+    "colour 'cyan': only 1 holds, skipped (need 5)",
+    "colour 'orange': only 1 holds, skipped (need 5)",
+    "colour 'red': only 1 holds, skipped (need 5)",
+    "no colour group has enough holds",
+    "fell back to generated routes",
+    "insufficient holds (3); need at least 5"
+  ],
+  "source": "generated"
+}

@@ -1,0 +1,1486 @@
+{
+  "schema": 2,
+  "wall_id": "b53142e0-d3d4-402f-a8cb-c0ffc2c58b5c",
+  "name": "Main face",
+  "venue": "Dairy Farm Quarry",
+  "mode": "outdoor",
+  "vuforia_target": "dairy-farm-quarry-rgb",
+  "aspect": 0.66406,
+  "coordinate_system": "normalized image: origin top-left, x right, y down, 0..1",
+  "algo_version": "2.0",
+  "disclaimer": "Colours show ESTIMATED difficulty computed from image geometry. They are not official climbing grades and say nothing about safety. Limb suggestions are estimates until confirmed.",
+  "updated_at": "2026-10-10T09:50:33+00:00",
+  "holds": [
+    {
+      "id": "H1",
+      "x": 0.94875,
+      "y": 0.40301,
+      "confidence": 0.7638,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H2",
+      "x": 0.78625,
+      "y": 0.18267,
+      "confidence": 0.7582,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H3",
+      "x": 0.63,
+      "y": 0.29567,
+      "confidence": 0.7518,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H4",
+      "x": 0.675,
+      "y": 0.6516,
+      "confidence": 0.7512,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H5",
+      "x": 0.91,
+      "y": 0.56874,
+      "confidence": 0.7501,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H6",
+      "x": 0.9375,
+      "y": 0.51412,
+      "confidence": 0.7298,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H7",
+      "x": 0.82375,
+      "y": 0.31073,
+      "confidence": 0.7272,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H8",
+      "x": 0.86375,
+      "y": 0.45763,
+      "confidence": 0.7231,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H9",
+      "x": 0.35625,
+      "y": 0.60452,
+      "confidence": 0.7012,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H10",
+      "x": 0.4775,
+      "y": 0.48776,
+      "confidence": 0.6725,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H11",
+      "x": 0.78,
+      "y": 0.68173,
+      "confidence": 0.6718,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H12",
+      "x": 0.3325,
+      "y": 0.29944,
+      "confidence": 0.6617,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H13",
+      "x": 0.705,
+      "y": 0.20904,
+      "confidence": 0.6547,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H14",
+      "x": 0.90125,
+      "y": 0.6629,
+      "confidence": 0.6506,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H15",
+      "x": 0.92875,
+      "y": 0.70245,
+      "confidence": 0.6477,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H16",
+      "x": 0.245,
+      "y": 0.26177,
+      "confidence": 0.6408,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H17",
+      "x": 0.55875,
+      "y": 0.41996,
+      "confidence": 0.64,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H18",
+      "x": 0.575,
+      "y": 0.87382,
+      "confidence": 0.6323,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H19",
+      "x": 0.97,
+      "y": 0.86252,
+      "confidence": 0.6294,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H20",
+      "x": 0.79875,
+      "y": 0.76836,
+      "confidence": 0.6233,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H21",
+      "x": 0.94625,
+      "y": 0.79096,
+      "confidence": 0.6162,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H22",
+      "x": 0.71,
+      "y": 0.74576,
+      "confidence": 0.6104,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H23",
+      "x": 0.44625,
+      "y": 0.371,
+      "confidence": 0.6087,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H24",
+      "x": 0.68375,
+      "y": 0.32768,
+      "confidence": 0.6084,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H25",
+      "x": 0.4775,
+      "y": 0.90584,
+      "confidence": 0.6068,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H26",
+      "x": 0.39875,
+      "y": 0.83239,
+      "confidence": 0.5956,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H27",
+      "x": 0.8275,
+      "y": 0.38418,
+      "confidence": 0.5953,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H28",
+      "x": 0.55875,
+      "y": 0.2354,
+      "confidence": 0.5912,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H29",
+      "x": 0.41375,
+      "y": 0.58945,
+      "confidence": 0.5896,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H30",
+      "x": 0.735,
+      "y": 0.55932,
+      "confidence": 0.5886,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H31",
+      "x": 0.16125,
+      "y": 0.13559,
+      "confidence": 0.5884,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H32",
+      "x": 0.11,
+      "y": 0.67608,
+      "confidence": 0.5861,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H33",
+      "x": 0.15875,
+      "y": 0.6403,
+      "confidence": 0.5815,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H34",
+      "x": 0.55125,
+      "y": 0.74765,
+      "confidence": 0.5802,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H35",
+      "x": 0.60875,
+      "y": 0.68738,
+      "confidence": 0.5767,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H36",
+      "x": 0.4025,
+      "y": 0.3258,
+      "confidence": 0.5665,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H37",
+      "x": 0.4675,
+      "y": 0.19774,
+      "confidence": 0.5638,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H38",
+      "x": 0.90875,
+      "y": 0.85687,
+      "confidence": 0.5632,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H39",
+      "x": 0.165,
+      "y": 0.5838,
+      "confidence": 0.5631,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H40",
+      "x": 0.1525,
+      "y": 0.83239,
+      "confidence": 0.5619,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H41",
+      "x": 0.3825,
+      "y": 0.74765,
+      "confidence": 0.5576,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H42",
+      "x": 0.44875,
+      "y": 0.29755,
+      "confidence": 0.5543,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H43",
+      "x": 0.03625,
+      "y": 0.46516,
+      "confidence": 0.5494,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H44",
+      "x": 0.71,
+      "y": 0.51601,
+      "confidence": 0.5489,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H45",
+      "x": 0.915,
+      "y": 0.21092,
+      "confidence": 0.5486,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H46",
+      "x": 0.66875,
+      "y": 0.49529,
+      "confidence": 0.5463,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H47",
+      "x": 0.82875,
+      "y": 0.49153,
+      "confidence": 0.5424,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H48",
+      "x": 0.1175,
+      "y": 0.27872,
+      "confidence": 0.5413,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H49",
+      "x": 0.57,
+      "y": 0.32015,
+      "confidence": 0.5391,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H50",
+      "x": 0.665,
+      "y": 0.58004,
+      "confidence": 0.5296,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H51",
+      "x": 0.20375,
+      "y": 0.79661,
+      "confidence": 0.5288,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H52",
+      "x": 0.0,
+      "y": 0.48023,
+      "confidence": 0.5286,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H53",
+      "x": 0.365,
+      "y": 0.24105,
+      "confidence": 0.5271,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H54",
+      "x": 0.42625,
+      "y": 0.88701,
+      "confidence": 0.5254,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H55",
+      "x": 0.86875,
+      "y": 0.79849,
+      "confidence": 0.5219,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H56",
+      "x": 0.3025,
+      "y": 0.42373,
+      "confidence": 0.5192,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H57",
+      "x": 0.62875,
+      "y": 0.45009,
+      "confidence": 0.5102,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H58",
+      "x": 0.39875,
+      "y": 0.64595,
+      "confidence": 0.5046,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H59",
+      "x": 0.4575,
+      "y": 0.76648,
+      "confidence": 0.4974,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H60",
+      "x": 0.9475,
+      "y": 0.28625,
+      "confidence": 0.4956,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H61",
+      "x": 0.51125,
+      "y": 0.71751,
+      "confidence": 0.4956,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H62",
+      "x": 0.415,
+      "y": 0.47269,
+      "confidence": 0.4943,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H63",
+      "x": 0.46625,
+      "y": 0.57815,
+      "confidence": 0.4942,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H64",
+      "x": 0.47875,
+      "y": 0.82674,
+      "confidence": 0.4939,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H65",
+      "x": 0.2675,
+      "y": 0.33898,
+      "confidence": 0.4931,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H66",
+      "x": 0.5725,
+      "y": 0.62524,
+      "confidence": 0.4917,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H67",
+      "x": 0.87125,
+      "y": 0.70245,
+      "confidence": 0.4893,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H68",
+      "x": 0.535,
+      "y": 0.90207,
+      "confidence": 0.4878,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H69",
+      "x": 0.03,
+      "y": 0.29379,
+      "confidence": 0.486,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H70",
+      "x": 0.06375,
+      "y": 0.74953,
+      "confidence": 0.4852,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H71",
+      "x": 0.0475,
+      "y": 0.21092,
+      "confidence": 0.4817,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H72",
+      "x": 0.0875,
+      "y": 0.45009,
+      "confidence": 0.4762,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H73",
+      "x": 0.9975,
+      "y": 0.77401,
+      "confidence": 0.4742,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H74",
+      "x": 0.19625,
+      "y": 0.88136,
+      "confidence": 0.4721,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H75",
+      "x": 0.5025,
+      "y": 0.34087,
+      "confidence": 0.4713,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H76",
+      "x": 0.49625,
+      "y": 0.66102,
+      "confidence": 0.4701,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H77",
+      "x": 0.51125,
+      "y": 0.58192,
+      "confidence": 0.4652,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H78",
+      "x": 0.90625,
+      "y": 0.29567,
+      "confidence": 0.4631,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H79",
+      "x": 0.00625,
+      "y": 0.60075,
+      "confidence": 0.4533,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H80",
+      "x": 0.27,
+      "y": 0.62335,
+      "confidence": 0.4514,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H81",
+      "x": 0.16375,
+      "y": 0.48964,
+      "confidence": 0.4479,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H82",
+      "x": 0.1275,
+      "y": 0.41808,
+      "confidence": 0.443,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H83",
+      "x": 0.34125,
+      "y": 0.48964,
+      "confidence": 0.4319,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H84",
+      "x": 0.33125,
+      "y": 0.74765,
+      "confidence": 0.429,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H85",
+      "x": 0.23625,
+      "y": 0.44068,
+      "confidence": 0.4272,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H86",
+      "x": 0.15875,
+      "y": 0.32957,
+      "confidence": 0.4215,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H87",
+      "x": 0.165,
+      "y": 0.24482,
+      "confidence": 0.4208,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H88",
+      "x": 0.87125,
+      "y": 0.26742,
+      "confidence": 0.4204,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H89",
+      "x": 0.04875,
+      "y": 0.6855,
+      "confidence": 0.4086,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H90",
+      "x": 0.07375,
+      "y": 0.54991,
+      "confidence": 0.407,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H91",
+      "x": 0.0,
+      "y": 0.70998,
+      "confidence": 0.398,
+      "type": "ledge",
+      "status": "detected"
+    },
+    {
+      "id": "H92",
+      "x": 0.60125,
+      "y": 0.79661,
+      "confidence": 0.3953,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H93",
+      "x": 0.26375,
+      "y": 0.82486,
+      "confidence": 0.3913,
+      "type": "feature",
+      "status": "detected"
+    },
+    {
+      "id": "H94",
+      "x": 0.215,
+      "y": 0.12806,
+      "confidence": 0.3861,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H95",
+      "x": 0.085,
+      "y": 0.80226,
+      "confidence": 0.377,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H96",
+      "x": 0.99875,
+      "y": 0.67043,
+      "confidence": 0.3756,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H97",
+      "x": 0.25375,
+      "y": 0.14124,
+      "confidence": 0.3621,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H98",
+      "x": 0.355,
+      "y": 0.85687,
+      "confidence": 0.3568,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H99",
+      "x": 0.2975,
+      "y": 0.84934,
+      "confidence": 0.3414,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H100",
+      "x": 0.26375,
+      "y": 0.6855,
+      "confidence": 0.3396,
+      "type": "pocket",
+      "status": "detected"
+    },
+    {
+      "id": "H101",
+      "x": 0.045,
+      "y": 0.12806,
+      "confidence": 0.3139,
+      "type": "pocket",
+      "status": "detected"
+    }
+  ],
+  "routes": [
+    {
+      "id": "R1",
+      "difficulty": "medium",
+      "color": "#EAB308",
+      "estimated_score": 0.429,
+      "feasibility": 0.6,
+      "hold_ids": [
+        "H20",
+        "H22",
+        "H4",
+        "H46",
+        "H24",
+        "H13"
+      ],
+      "points": [
+        {
+          "hold_id": "H20",
+          "x": 0.79875,
+          "y": 0.76836,
+          "role": "start",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H22",
+          "x": 0.71,
+          "y": 0.74576,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H4",
+          "x": 0.675,
+          "y": 0.6516,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H46",
+          "x": 0.66875,
+          "y": 0.49529,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H24",
+          "x": 0.68375,
+          "y": 0.32768,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H13",
+          "x": 0.705,
+          "y": 0.20904,
+          "role": "finish",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H20",
+          "text": "Start on H20."
+        },
+        {
+          "index": 1,
+          "from": "H20",
+          "to": "H22",
+          "text": "Move to H22 (up and to the left, medium reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H22",
+          "to": "H4",
+          "text": "Move to H4 (up and to the left, short reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H4",
+          "to": "H46",
+          "text": "Move to H46 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H46",
+          "to": "H24",
+          "text": "Move to H24 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 5,
+          "from": "H24",
+          "to": "H13",
+          "text": "Finish on H13 (up and to the right, short reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 6,
+        "mean_reach": 0.0919,
+        "max_reach": 0.1123,
+        "lateral_ratio": 0.4476,
+        "direction_changes": 0.333,
+        "mean_confidence": 0.632,
+        "score": 0.429,
+        "label": "medium",
+        "feasibility": 0.6
+      },
+      "edited": false
+    },
+    {
+      "id": "R2",
+      "difficulty": "easy",
+      "color": "#22C55E",
+      "estimated_score": 0.4,
+      "feasibility": 0.546,
+      "hold_ids": [
+        "H26",
+        "H41",
+        "H9",
+        "H83",
+        "H12",
+        "H53"
+      ],
+      "points": [
+        {
+          "hold_id": "H26",
+          "x": 0.39875,
+          "y": 0.83239,
+          "role": "start",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H41",
+          "x": 0.3825,
+          "y": 0.74765,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H9",
+          "x": 0.35625,
+          "y": 0.60452,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H83",
+          "x": 0.34125,
+          "y": 0.48964,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H12",
+          "x": 0.3325,
+          "y": 0.29944,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H53",
+          "x": 0.365,
+          "y": 0.24105,
+          "role": "finish",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H26",
+          "text": "Start on H26."
+        },
+        {
+          "index": 1,
+          "from": "H26",
+          "to": "H41",
+          "text": "Move to H41 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H41",
+          "to": "H9",
+          "text": "Move to H9 (up and to the left, medium reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H9",
+          "to": "H83",
+          "text": "Move to H83 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H83",
+          "to": "H12",
+          "text": "Move to H12 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 5,
+          "from": "H12",
+          "to": "H53",
+          "text": "Finish on H53 (up and to the right, short reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 6,
+        "mean_reach": 0.0824,
+        "max_reach": 0.1266,
+        "lateral_ratio": 0.2515,
+        "direction_changes": 0.333,
+        "mean_confidence": 0.579,
+        "score": 0.4,
+        "label": "easy",
+        "feasibility": 0.546
+      },
+      "edited": false
+    },
+    {
+      "id": "R3",
+      "difficulty": "hard",
+      "color": "#EF4444",
+      "estimated_score": 0.559,
+      "feasibility": 0.45,
+      "hold_ids": [
+        "H73",
+        "H6",
+        "H1",
+        "H60",
+        "H45"
+      ],
+      "points": [
+        {
+          "hold_id": "H73",
+          "x": 0.9975,
+          "y": 0.77401,
+          "role": "start",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H6",
+          "x": 0.9375,
+          "y": 0.51412,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H1",
+          "x": 0.94875,
+          "y": 0.40301,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H60",
+          "x": 0.9475,
+          "y": 0.28625,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H45",
+          "x": 0.915,
+          "y": 0.21092,
+          "role": "finish",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H73",
+          "text": "Start on H73."
+        },
+        {
+          "index": 1,
+          "from": "H73",
+          "to": "H6",
+          "text": "Move to H6 (up and to the left, long reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H6",
+          "to": "H1",
+          "text": "Move to H1 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H1",
+          "to": "H60",
+          "text": "Move to H60 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H60",
+          "to": "H45",
+          "text": "Finish on H45 (up and to the left, short reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 5,
+        "mean_reach": 0.0986,
+        "max_reach": 0.1827,
+        "lateral_ratio": 0.2808,
+        "direction_changes": 1.0,
+        "mean_confidence": 0.602,
+        "score": 0.559,
+        "label": "hard",
+        "feasibility": 0.45
+      },
+      "edited": false
+    },
+    {
+      "id": "R4",
+      "difficulty": "easy",
+      "color": "#22C55E",
+      "estimated_score": 0.392,
+      "feasibility": 0.535,
+      "hold_ids": [
+        "H68",
+        "H61",
+        "H77",
+        "H10",
+        "H23",
+        "H42",
+        "H37"
+      ],
+      "points": [
+        {
+          "hold_id": "H68",
+          "x": 0.535,
+          "y": 0.90207,
+          "role": "start",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H61",
+          "x": 0.51125,
+          "y": 0.71751,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H77",
+          "x": 0.51125,
+          "y": 0.58192,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H10",
+          "x": 0.4775,
+          "y": 0.48776,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H23",
+          "x": 0.44625,
+          "y": 0.371,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H42",
+          "x": 0.44875,
+          "y": 0.29755,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H37",
+          "x": 0.4675,
+          "y": 0.19774,
+          "role": "finish",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H68",
+          "text": "Start on H68."
+        },
+        {
+          "index": 1,
+          "from": "H68",
+          "to": "H61",
+          "text": "Move to H61 (up and to the left, medium reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H61",
+          "to": "H77",
+          "text": "Move to H77 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H77",
+          "to": "H10",
+          "text": "Move to H10 (up and to the left, short reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H10",
+          "to": "H23",
+          "text": "Move to H23 (up and to the left, short reach, estimated)."
+        },
+        {
+          "index": 5,
+          "from": "H23",
+          "to": "H42",
+          "text": "Move to H42 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 6,
+          "from": "H42",
+          "to": "H37",
+          "text": "Finish on H37 (straight up, short reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 7,
+        "mean_reach": 0.0812,
+        "max_reach": 0.1248,
+        "lateral_ratio": 0.2352,
+        "direction_changes": 0.333,
+        "mean_confidence": 0.55,
+        "score": 0.392,
+        "label": "easy",
+        "feasibility": 0.535
+      },
+      "edited": false
+    },
+    {
+      "id": "R5",
+      "difficulty": "easy",
+      "color": "#22C55E",
+      "estimated_score": 0.356,
+      "feasibility": 0.518,
+      "hold_ids": [
+        "H91",
+        "H79",
+        "H43",
+        "H69",
+        "H71"
+      ],
+      "points": [
+        {
+          "hold_id": "H91",
+          "x": 0.0,
+          "y": 0.70998,
+          "role": "start",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H79",
+          "x": 0.00625,
+          "y": 0.60075,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H43",
+          "x": 0.03625,
+          "y": 0.46516,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H69",
+          "x": 0.03,
+          "y": 0.29379,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H71",
+          "x": 0.0475,
+          "y": 0.21092,
+          "role": "finish",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H91",
+          "text": "Start on H91."
+        },
+        {
+          "index": 1,
+          "from": "H91",
+          "to": "H79",
+          "text": "Move to H79 (straight up, short reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H79",
+          "to": "H43",
+          "text": "Move to H43 (up and to the right, medium reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H43",
+          "to": "H69",
+          "text": "Move to H69 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H69",
+          "to": "H71",
+          "text": "Finish on H71 (straight up, short reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 5,
+        "mean_reach": 0.0849,
+        "max_reach": 0.114,
+        "lateral_ratio": 0.181,
+        "direction_changes": 0.0,
+        "mean_confidence": 0.474,
+        "score": 0.356,
+        "label": "easy",
+        "feasibility": 0.518
+      },
+      "edited": false
+    },
+    {
+      "id": "R6",
+      "difficulty": "easy",
+      "color": "#22C55E",
+      "estimated_score": 0.393,
+      "feasibility": 0.509,
+      "hold_ids": [
+        "H51",
+        "H33",
+        "H81",
+        "H86",
+        "H31"
+      ],
+      "points": [
+        {
+          "hold_id": "H51",
+          "x": 0.20375,
+          "y": 0.79661,
+          "role": "start",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H33",
+          "x": 0.15875,
+          "y": 0.6403,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H81",
+          "x": 0.16375,
+          "y": 0.48964,
+          "role": "hold",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H86",
+          "x": 0.15875,
+          "y": 0.32957,
+          "role": "hold",
+          "limb": "right_hand",
+          "limb_status": "estimated"
+        },
+        {
+          "hold_id": "H31",
+          "x": 0.16125,
+          "y": 0.13559,
+          "role": "finish",
+          "limb": "left_hand",
+          "limb_status": "estimated"
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "from": null,
+          "to": "H51",
+          "text": "Start on H51."
+        },
+        {
+          "index": 1,
+          "from": "H51",
+          "to": "H33",
+          "text": "Move to H33 (up and to the left, medium reach, estimated)."
+        },
+        {
+          "index": 2,
+          "from": "H33",
+          "to": "H81",
+          "text": "Move to H81 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 3,
+          "from": "H81",
+          "to": "H86",
+          "text": "Move to H86 (straight up, medium reach, estimated)."
+        },
+        {
+          "index": 4,
+          "from": "H86",
+          "to": "H31",
+          "text": "Finish on H31 (straight up, medium reach, estimated)."
+        }
+      ],
+      "metrics": {
+        "hold_count": 5,
+        "mean_reach": 0.1121,
+        "max_reach": 0.1288,
+        "lateral_ratio": 0.131,
+        "direction_changes": 0.0,
+        "mean_confidence": 0.514,
+        "score": 0.393,
+        "label": "easy",
+        "feasibility": 0.509
+      },
+      "edited": false
+    }
+  ],
+  "warnings": []
+}

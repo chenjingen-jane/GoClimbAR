@@ -1,0 +1,32 @@
+# ---- Unity: generated, rebuilt automatically when the project opens ----
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+*.csproj
+*.sln
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+crashlytics-build.properties
+
+# ---- Python route engine ----
+__pycache__/
+*.py[cod]
+
+# ---- Runtime data (scanned photos, local DBs, backups) - keep on your PC, not in git ----
+goclimb_data/
+goclimb_data_backup/
+unity_export/

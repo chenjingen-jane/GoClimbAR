@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8"><title>GoClimb admin editor</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--line:#d9d9de;--muted:#666;--bg:#f6f6f8;--acc:#2563eb}
+*{box-sizing:border-box}
+body{font-family:system-ui,Arial,sans-serif;margin:0;display:flex;height:100vh;color:#222}
+#side{width:340px;overflow:auto;padding:12px;border-right:1px solid var(--line);background:var(--bg)}
+#main{flex:1;overflow:auto;padding:12px}
+h3{margin:10px 0 6px}
+input,select,button{margin:2px 0;padding:6px 8px;font-size:14px;border:1px solid #bbb;border-radius:6px;background:#fff}
+button{cursor:pointer}button.pri{background:var(--acc);color:#fff;border-color:var(--acc)}button.danger{color:#b91c1c;border-color:#e5a5a5}
+.seg button{border-radius:0;margin:0 -1px 0 0}.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+.seg button.on{background:#222;color:#fff;border-color:#222}
+.wall{display:flex;gap:8px;border:1px solid var(--line);border-radius:8px;padding:6px;margin:6px 0;cursor:pointer;background:#fff}
+.wall img{width:72px;height:54px;object-fit:cover;border-radius:4px}
+.badge{display:inline-block;font-size:11px;padding:1px 6px;border-radius:9px;background:#fde68a;color:#7c4a03;margin-left:4px}
+.badge.ok{background:#dcfce7;color:#166534}
+.chip{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.route{display:flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;margin:4px 0;background:#fff}
+.route.sel{border-color:#000;background:#eef2ff}.route .txt{flex:1;cursor:pointer}
+.legend span{margin-right:12px}.warn{color:#a15c00;font-size:13px}.small{font-size:12px;color:var(--muted)}
+#banner{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;background:#eef2ff;border:1px solid #c7d2fe}
+canvas{border:1px solid #999;max-width:100%;touch-action:none;border-radius:4px}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:4px 0}
+</style></head><body>
+<div id="side">
+ <div class="row"><b>Admin</b> <span id="adm" class="small"></span> <button onclick="login()">Token</button></div>
+ <h3>Find a wall</h3>
+ <input id="sq" placeholder="venue or wall name" style="width:100%" onkeydown="if(event.key=='Enter')search()">
+ <div class="row"><select id="sm"><option value="">any mode</option><option>indoor</option><option>outdoor</option></select>
+ <label class="small"><input type="checkbox" id="sr" onchange="search()"> needs review only</label>
+ <button onclick="search()">Search</button></div>
+ <div id="results"></div><hr>
+ <h3>New wall</h3>
+ <input id="nn" placeholder="wall name" style="width:100%"><input id="nv" placeholder="venue name" style="width:100%">
+ <div class="row"><select id="nm"><option>indoor</option><option>outdoor</option></select>
+ <input id="nt" placeholder="Vuforia target (optional)" style="flex:1"></div>
+ <div class="row"><input id="nlat" placeholder="lat (optional)" style="width:48%"><input id="nlon" placeholder="lon (optional)" style="width:48%"></div>
+ <input id="nf" type="file" accept="image/*"><button class="pri" onclick="createWall(false)">Create + detect holds</button>
+ <div id="dup" class="warn"></div>
+</div>
+<div id="main">
+ <div id="head"><b>No wall loaded</b> <span class="small">Pick a wall on the left. Walls uploaded from the app are marked "needs review".</span></div>
+ <div id="tools" style="display:none">
+  <div class="row"><span class="seg" id="toolseg"></span>
+   <span class="small">Max routes</span><input id="mr" type="number" value="6" min="1" max="30" style="width:60px">
+   <button onclick="gen()">Generate routes</button><button onclick="redetect()">Re-detect (adds only)</button>
+   <button onclick="newRoute()">+ New route</button></div>
+  <div class="row"><button id="revbtn" onclick="review()"></button><button onclick="exportU()">Export for Unity</button>
+   <button class="danger" onclick="delWall()">Delete wall</button>
+   <span class="legend small"><span><i class="chip" style="background:#22C55E"></i>easy</span>
+   <span><i class="chip" style="background:#EAB308"></i>medium</span><span><i class="chip" style="background:#EF4444"></i>difficult</span>
+   (estimated, not official grades)</span></div>
+ </div>
+ <div id="banner"></div>
+ <div id="info" class="small"></div>
+ <canvas id="cv" width="900" height="600" style="display:none"></canvas>
+ <div id="routes"></div><div id="steps"></div>
+</div>
+<script>
+let W=null,img=new Image(),sel=null,drag=null,tool='view',seq=null,editId=null;
+let token=localStorage.getItem('gcToken')||'';
+const $=id=>document.getElementById(id), cv=$('cv'), ctx=cv.getContext('2d');
+const TOOLS=[['view','View'],['add','Add hold'],['move','Move hold'],['delete','Delete hold']];
+function tools(){$('toolseg').innerHTML=TOOLS.map(([k,l])=>`<button class="${tool==k&&!seq?'on':''}" onclick="setTool('${k}')">${l}</button>`).join('')}
+function setTool(k){if(seq)cancelSeq();tool=k;tools()}
+async function api(m,u,b){const h={'Content-Type':'application/json'};if(token)h['X-Admin-Token']=token;
+ const r=await fetch(u,{method:m,headers:h,body:b?JSON.stringify(b):undefined});const j=await r.json().catch(()=>({}));
+ if(r.status==401){alert('Admin token required or wrong. Click "Token".');return {s:401,j}}
+ if(!r.ok&&r.status!=409)alert(j.error||r.status);return {s:r.status,j}}
+async function admState(){const {j}=await fetch('/api/version').then(r=>r.json()).then(j=>({j})).catch(()=>({j:{}}));
+ $('adm').textContent=j.admin_token_required?(token?'token set':'token needed to edit'):'open (no token on server)'}
+function login(){const t=prompt('Admin token (leave empty to clear):',token);if(t===null)return;token=t.trim();localStorage.setItem('gcToken',token);admState()}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function search(){const q=new URLSearchParams();if($('sq').value)q.set('q',$('sq').value);if($('sm').value)q.set('mode',$('sm').value);if($('sr').checked)q.set('review','1');
+ const {j}=await api('GET','/api/walls?'+q);const R=$('results');R.innerHTML=j.length?'':'<div class="small">No matching wall found.</div>';
+ j.forEach(w=>{const d=document.createElement('div');d.className='wall';d.onclick=()=>load(w.wall_id);
+  const b=w.reviewed?'':'<span class="badge">needs review</span>';const src=w.source=='app'?' <span class="small">from app</span>':'';
+  d.innerHTML=(w.photo_available?`<img src="/photo/${w.wall_id}">`:'<div class="warn">photo missing</div>')+`<div><b>${esc(w.name)}</b>${b}<br>${esc(w.venue)}<br><span class="small">${w.mode}</span>${src}</div>`;R.appendChild(d)})}
+function b64(f){return new Promise(r=>{const x=new FileReader();x.onload=()=>r(x.result.split(',')[1]);x.readAsDataURL(f)})}
+async function createWall(dup){const f=$('nf').files[0];if(!f)return alert('choose a photo');
+ const body={name:$('nn').value,venue:$('nv').value,mode:$('nm').value,vuforia_target:$('nt').value,image_b64:await b64(f),allow_duplicate:dup,source:'web'};
+ if($('nlat').value&&$('nlon').value){body.lat=parseFloat($('nlat').value);body.lon=parseFloat($('nlon').value)}
+ const {s,j}=await api('POST','/api/walls',body);
+ if(s==409){$('dup').innerHTML='A wall with this venue and name exists. <a href="#" onclick="load(\''+j.existing[0].wall_id+'\');return false">Open it</a> or <a href="#" onclick="createWall(true);return false">create anyway</a>';return}
+ $('dup').innerHTML='';if(j.wall_id){load(j.wall_id);search()}}
+async function load(id,keepSel){const {j}=await api('GET','/api/walls/'+id);if(!j.wall_id)return;W=j;if(!keepSel)sel=null;
+ if(!img.src.includes(id)){img=new Image();img.onload=draw;img.src='/photo/'+id+'?'+Date.now()}else draw();
+ cv.style.display='block';$('tools').style.display='block';tools();render()}
+function render(){const act=W.holds.filter(h=>h.status!='deleted').length,rep=W.detection_report;
+ $('head').innerHTML=`<b>${esc(W.name)}</b> - ${esc(W.venue)} (${W.mode})`+(W.reviewed?' <span class="badge ok">reviewed</span>':' <span class="badge">needs review</span>')+(W.source=='app'?' <span class="small">uploaded from app</span>':'')+` <span class="small">id ${W.wall_id}</span>`;
+ $('revbtn').textContent=W.reviewed?'Mark as NOT reviewed':'Mark as reviewed';
+ $('info').innerHTML=`${act} active holds. Auto-detected ${rep.auto_detected}: ${rep.false_detections} deleted, ${rep.moved_by_user} moved, ${rep.missed_added_by_user} added manually.`+(W.photo_status!='ok'?' <b class="warn">PHOTO FILE MISSING</b>':'');
+ const R=$('routes');R.innerHTML='<h3>Routes <span class="small">(click to inspect; Edit = tap holds on the photo)</span></h3>';
+ W.routes.forEach(r=>{const d=document.createElement('div');d.className='route'+(sel==r.id?' sel':'');
+  const t=document.createElement('span');t.className='txt';t.onclick=()=>{sel=sel==r.id?null:r.id;render();draw()};
+  t.innerHTML=r.valid?`<i class="chip" style="background:${r.color}"></i><b>${r.id}</b> ${r.difficulty} (est. ${r.estimated_score}) ${r.hold_ids.join(' → ')}`+(r.edited?' <span class="small">edited</span>':''):`${r.id}: <span class="warn">invalid - ${esc(r.invalid_reason)}</span>`;
+  d.appendChild(t);
+  const e=document.createElement('button');e.textContent='Edit';e.onclick=()=>editRoute(r);d.appendChild(e);
+  const x=document.createElement('button');x.textContent='Delete';x.className='danger';x.onclick=()=>delRoute(r.id);d.appendChild(x);R.appendChild(d)});
+ const S=$('steps');S.innerHTML='';const r=W.routes.find(x=>x.id==sel&&x.valid);
+ if(r){S.innerHTML='<h3>Steps for '+r.id+'</h3><span class="small">limbs are estimates until you confirm them</span>';
+  r.steps.forEach((s,i)=>{const p=r.points[i];const d=document.createElement('div');d.className='small';
+   d.innerHTML=`${i+1}. ${esc(s.text)} limb: <select onchange="limb('${r.id}','${p.hold_id}',this.value)"><option value="">${p.limb_status=='confirmed'?'(clear)':'auto: '+(p.limb||'none')}</option>${['left_hand','right_hand','left_foot','right_foot'].map(l=>`<option ${p.limb==l&&p.limb_status=='confirmed'?'selected':''}>${l}</option>`).join('')}</select> ${p.limb_status=='confirmed'?'<b>confirmed</b>':'<i>estimated</i>'}`;S.appendChild(d)})}}
+function seqBanner(){const b=$('banner');if(!seq){b.style.display='none';return}b.style.display='block';
+ b.innerHTML=`<b>${editId?'Editing '+editId:'New route'}</b>: tap holds on the photo in climbing order. Tap a chosen hold again to remove it.<br>
+ Sequence: ${seq.length?seq.join(' → '):'<i>empty</i>'}<div class="row"><button onclick="sortSeq()">Sort bottom → top</button><button onclick="seq.pop();seqBanner();draw()">Undo last</button>
+ <button class="pri" onclick="saveSeq()">Save route</button><button onclick="cancelSeq()">Cancel</button></div>`}
+function editRoute(r){tool='view';seq=[...r.hold_ids];editId=r.id;sel=r.id;tools();seqBanner();render();draw()}
+function newRoute(){tool='view';seq=[];editId=null;sel=null;tools();seqBanner();render();draw()}
+function cancelSeq(){seq=null;editId=null;tools();seqBanner();draw()}
+function sortSeq(){const by=Object.fromEntries(W.holds.map(h=>[h.id,h]));seq.sort((a,b)=>by[b].y-by[a].y);seqBanner();draw()}
+async function saveSeq(){if(seq.length<2)return alert('Pick at least 2 holds.');
+ const r=editId?await api('POST',`/api/walls/${W.wall_id}/routes/${editId}/sequence`,{hold_ids:seq}):await api('POST',`/api/walls/${W.wall_id}/routes`,{hold_ids:seq});
+ if(r.s>=400)return;const keep=editId||r.j.route_id;cancelSeq();sel=keep;await load(W.wall_id,true)}
+async function delRoute(id){if(!confirm('Delete route '+id+'?'))return;const r=await api('DELETE',`/api/walls/${W.wall_id}/routes/${id}`);if(r.s<400){if(sel==id)sel=null;load(W.wall_id,true)}}
+function draw(){if(!W||!img.naturalWidth)return;const s=Math.min(1100/img.naturalWidth,1);cv.width=img.naturalWidth*s;cv.height=img.naturalHeight*s;
+ ctx.drawImage(img,0,0,cv.width,cv.height);const P=(x,y)=>[x*cv.width,y*cv.height];const U=Math.max(1,cv.width/900);
+ ctx.lineJoin='round';ctx.lineCap='round';
+ W.holds.forEach(h=>{if(h.status=='deleted')return;const[p,q]=P(h.x,h.y);ctx.beginPath();ctx.arc(p,q,5*U,0,7);
+  ctx.strokeStyle=h.status=='detected'?'#fff':'#0ff';ctx.lineWidth=1.5*U;ctx.stroke();ctx.fillStyle='#fff';ctx.font=`${10*U}px sans-serif`;ctx.fillText(h.id,p+6*U,q-6*U)});
+ const shown=W.routes.filter(r=>r.valid&&!(seq&&editId==r.id));const n=shown.length;
+ shown.forEach((r,k)=>{const dim=(sel&&sel!=r.id)||seq,off=(k-(n-1)/2)*2.5*U;ctx.globalAlpha=dim?.25:1;polyline(r.points.map(p=>P(p.x,p.y)),r.color,off,dim?2*U:4*U);
+  r.points.forEach((p,i)=>{const[a,b]=P(p.x,p.y);dot(a,b,(p.role=='hold'?5:8)*U,r.color);
+   if(sel==r.id&&!seq){ctx.fillStyle='#fff';ctx.font=`bold ${13*U}px sans-serif`;ctx.fillText(i+1,a+8*U,b+16*U)}});ctx.globalAlpha=1});
+ if(seq){const by=Object.fromEntries(W.holds.map(h=>[h.id,h]));const pts=seq.filter(i=>by[i]).map(i=>P(by[i].x,by[i].y));
+  if(pts.length>1)polyline(pts,'#2563eb',0,4*U);pts.forEach(([a,b],i)=>{dot(a,b,8*U,'#2563eb');ctx.fillStyle='#fff';ctx.font=`bold ${12*U}px sans-serif`;ctx.textAlign='center';ctx.fillText(i+1,a,b+4*U);ctx.textAlign='left'})}}
+function polyline(pts,color,off,width){if(pts.length<2)return;const o=pts.map((p,i)=>{const a=pts[Math.max(i-1,0)],b=pts[Math.min(i+1,pts.length-1)];
+  const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return[p[0]-dy/l*off,p[1]+dx/l*off]});
+ for(const [c,w] of [['rgba(0,0,0,.55)',width+3],[color,width]]){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();o.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke()}}
+function dot(a,b,r,color){ctx.beginPath();ctx.arc(a,b,r,0,7);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke()}
+function pos(e){const r=cv.getBoundingClientRect();return[Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),Math.min(1,Math.max(0,(e.clientY-r.top)/r.height))]}
+function hit(x,y){let best=null,bd=.025;W.holds.forEach(h=>{if(h.status=='deleted')return;const d=Math.hypot((h.x-x)*cv.width,(h.y-y)*cv.height)/cv.width;if(d<bd){bd=d;best=h}});return best}
+cv.onpointerdown=async e=>{if(!W)return;const[x,y]=pos(e),h=hit(x,y);
+ if(seq){if(!h)return;const i=seq.indexOf(h.id);if(i>=0)seq.splice(i,1);else seq.push(h.id);seqBanner();draw();return}
+ if(tool=='add'){await api('POST',`/api/walls/${W.wall_id}/holds`,{x,y});load(W.wall_id,true)}
+ else if(tool=='delete'&&h){await api('DELETE',`/api/walls/${W.wall_id}/holds/${h.id}`);load(W.wall_id,true)}
+ else if(tool=='move'&&h){drag=h;cv.setPointerCapture(e.pointerId)}};
+cv.onpointermove=e=>{if(!drag)return;const[x,y]=pos(e);drag.x=x;drag.y=y;draw()};
+cv.onpointerup=async()=>{if(!drag)return;const h=drag;drag=null;await api('PUT',`/api/walls/${W.wall_id}/holds/${h.id}`,{x:h.x,y:h.y});load(W.wall_id,true)};
+async function gen(){const {s,j}=await api('POST',`/api/walls/${W.wall_id}/routes/generate`,{max_routes:parseInt($('mr').value)});if(s>=400)return;
+ alert(`Candidates ${j.candidates}, unique ${j.unique}, near-duplicates rejected ${j.near_duplicates_rejected}, retained ${j.retained}\n`+(j.warnings||[]).join('\n')+'\n\nHand-made / edited routes were kept.');load(W.wall_id)}
+async function redetect(){const {s,j}=await api('POST',`/api/walls/${W.wall_id}/redetect`,{});if(s<400){alert(j.added+' new candidates added');load(W.wall_id,true)}}
+async function review(){const {s}=await api('POST',`/api/walls/${W.wall_id}/review`,{reviewed:!W.reviewed});if(s<400){await load(W.wall_id,true);search()}}
+async function exportU(){const {s,j}=await api('POST',`/api/walls/${W.wall_id}/export`,{});if(s<400)alert('Exported: '+j.path)}
+async function limb(rid,hid,v){await api('POST',`/api/walls/${W.wall_id}/routes/${rid}/limb`,{hold_id:hid,limb:v});load(W.wall_id,true)}
+async function delWall(){if(!confirm('Delete this wall, its photo, holds and routes permanently?'))return;const {s}=await api('DELETE','/api/walls/'+W.wall_id+'?confirm=1');if(s<400){W=null;location.reload()}}
+admState();search();
+</script></body></html>

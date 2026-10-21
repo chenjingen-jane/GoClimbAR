@@ -1,0 +1,1268 @@
+{
+  "schema": 1,
+  "wall": "dairy-farm-quarry-rgb",
+  "aspect": 0.75,
+  "coordinate_system": "normalized image: origin top-left, x right, y down, 0..1",
+  "detector": "ClassicalDetector",
+  "note": "Difficulty is estimated from image geometry only; it is not an official grade and says nothing about safety. Hold detection is heuristic unless a trained detector is used.",
+  "holds": [
+    {
+      "id": 0,
+      "x": 0.93375,
+      "y": 0.46,
+      "confidence": 0.7694,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 1,
+      "x": 0.73,
+      "y": 0.66333,
+      "confidence": 0.7679,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 2,
+      "x": 0.89875,
+      "y": 0.315,
+      "confidence": 0.7626,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 3,
+      "x": 0.88125,
+      "y": 0.50167,
+      "confidence": 0.7451,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 4,
+      "x": 0.68625,
+      "y": 0.29,
+      "confidence": 0.7316,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 5,
+      "x": 0.845,
+      "y": 0.50667,
+      "confidence": 0.7274,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 6,
+      "x": 0.98375,
+      "y": 0.58,
+      "confidence": 0.7132,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 7,
+      "x": 0.0,
+      "y": 0.45,
+      "confidence": 0.7082,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 8,
+      "x": 0.85875,
+      "y": 0.18333,
+      "confidence": 0.7073,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 9,
+      "x": 0.97375,
+      "y": 0.68,
+      "confidence": 0.7005,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 10,
+      "x": 0.49375,
+      "y": 0.90333,
+      "confidence": 0.7005,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 11,
+      "x": 0.09,
+      "y": 0.68333,
+      "confidence": 0.6996,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 12,
+      "x": 0.37,
+      "y": 0.61,
+      "confidence": 0.6963,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 13,
+      "x": 0.51,
+      "y": 0.49,
+      "confidence": 0.6911,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 14,
+      "x": 0.9875,
+      "y": 0.78167,
+      "confidence": 0.6772,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 15,
+      "x": 0.84375,
+      "y": 0.69167,
+      "confidence": 0.6679,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 16,
+      "x": 0.9025,
+      "y": 0.4,
+      "confidence": 0.6659,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 17,
+      "x": 0.6025,
+      "y": 0.42167,
+      "confidence": 0.6604,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 18,
+      "x": 0.03875,
+      "y": 0.75167,
+      "confidence": 0.6562,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 19,
+      "x": 0.86375,
+      "y": 0.78333,
+      "confidence": 0.6513,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 20,
+      "x": 0.76875,
+      "y": 0.75833,
+      "confidence": 0.6409,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 21,
+      "x": 0.99875,
+      "y": 0.21833,
+      "confidence": 0.6373,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 22,
+      "x": 0.94375,
+      "y": 0.71833,
+      "confidence": 0.6371,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 23,
+      "x": 0.59125,
+      "y": 0.75833,
+      "confidence": 0.6326,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 24,
+      "x": 0.655,
+      "y": 0.69667,
+      "confidence": 0.6298,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 25,
+      "x": 0.065,
+      "y": 0.44333,
+      "confidence": 0.6283,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 26,
+      "x": 0.345,
+      "y": 0.29167,
+      "confidence": 0.6212,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 27,
+      "x": 0.93625,
+      "y": 0.81167,
+      "confidence": 0.619,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 28,
+      "x": 0.72,
+      "y": 0.58833,
+      "confidence": 0.6185,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 29,
+      "x": 0.62875,
+      "y": 0.92667,
+      "confidence": 0.6097,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 30,
+      "x": 0.4175,
+      "y": 0.85167,
+      "confidence": 0.6026,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 31,
+      "x": 0.14125,
+      "y": 0.85833,
+      "confidence": 0.6022,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 32,
+      "x": 0.77375,
+      "y": 0.19833,
+      "confidence": 0.6014,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 33,
+      "x": 0.745,
+      "y": 0.32833,
+      "confidence": 0.5981,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 34,
+      "x": 0.97625,
+      "y": 0.87,
+      "confidence": 0.5943,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 35,
+      "x": 0.15,
+      "y": 0.58167,
+      "confidence": 0.5908,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 36,
+      "x": 0.135,
+      "y": 0.105,
+      "confidence": 0.5884,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 37,
+      "x": 0.4775,
+      "y": 0.38,
+      "confidence": 0.5872,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 38,
+      "x": 0.53,
+      "y": 0.67,
+      "confidence": 0.5871,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 39,
+      "x": 0.60875,
+      "y": 0.88667,
+      "confidence": 0.5829,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 40,
+      "x": 0.43875,
+      "y": 0.595,
+      "confidence": 0.5828,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 41,
+      "x": 0.80125,
+      "y": 0.58667,
+      "confidence": 0.5823,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 42,
+      "x": 0.60625,
+      "y": 0.64833,
+      "confidence": 0.5752,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 43,
+      "x": 0.44625,
+      "y": 0.91167,
+      "confidence": 0.5725,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 44,
+      "x": 0.4,
+      "y": 0.75833,
+      "confidence": 0.5723,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 45,
+      "x": 0.24625,
+      "y": 0.245,
+      "confidence": 0.569,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 46,
+      "x": 0.18625,
+      "y": 0.89833,
+      "confidence": 0.5673,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 47,
+      "x": 0.725,
+      "y": 0.50167,
+      "confidence": 0.5659,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 48,
+      "x": 0.48875,
+      "y": 0.43833,
+      "confidence": 0.5628,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 49,
+      "x": 0.4275,
+      "y": 0.31667,
+      "confidence": 0.561,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 50,
+      "x": 0.57375,
+      "y": 0.80833,
+      "confidence": 0.5604,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 51,
+      "x": 0.605,
+      "y": 0.22667,
+      "confidence": 0.5603,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 52,
+      "x": 0.42875,
+      "y": 0.67833,
+      "confidence": 0.5539,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 53,
+      "x": 0.54625,
+      "y": 0.72667,
+      "confidence": 0.552,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 54,
+      "x": 0.81875,
+      "y": 0.64167,
+      "confidence": 0.5502,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 55,
+      "x": 0.99875,
+      "y": 0.295,
+      "confidence": 0.5501,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 56,
+      "x": 0.0,
+      "y": 0.27667,
+      "confidence": 0.5498,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 57,
+      "x": 0.61625,
+      "y": 0.315,
+      "confidence": 0.5493,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 58,
+      "x": 0.09875,
+      "y": 0.26,
+      "confidence": 0.5381,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 59,
+      "x": 0.49625,
+      "y": 0.57833,
+      "confidence": 0.5369,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 60,
+      "x": 0.5325,
+      "y": 0.21667,
+      "confidence": 0.5355,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 61,
+      "x": 0.55625,
+      "y": 0.87833,
+      "confidence": 0.5344,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 62,
+      "x": 0.77,
+      "y": 0.52333,
+      "confidence": 0.5334,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 63,
+      "x": 0.8075,
+      "y": 0.26167,
+      "confidence": 0.5317,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 64,
+      "x": 0.81375,
+      "y": 0.84667,
+      "confidence": 0.527,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 65,
+      "x": 0.31375,
+      "y": 0.41833,
+      "confidence": 0.5225,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 66,
+      "x": 0.43875,
+      "y": 0.475,
+      "confidence": 0.5211,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 67,
+      "x": 0.19375,
+      "y": 0.80833,
+      "confidence": 0.5199,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 68,
+      "x": 0.94875,
+      "y": 0.27167,
+      "confidence": 0.5165,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 69,
+      "x": 0.38625,
+      "y": 0.40333,
+      "confidence": 0.5163,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 70,
+      "x": 0.5975,
+      "y": 0.52,
+      "confidence": 0.5151,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 71,
+      "x": 0.4775,
+      "y": 0.29333,
+      "confidence": 0.5138,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 72,
+      "x": 0.00875,
+      "y": 0.55833,
+      "confidence": 0.5109,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 73,
+      "x": 0.68125,
+      "y": 0.455,
+      "confidence": 0.5084,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 74,
+      "x": 0.0125,
+      "y": 0.62833,
+      "confidence": 0.5066,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 75,
+      "x": 0.48375,
+      "y": 0.22833,
+      "confidence": 0.5062,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 76,
+      "x": 0.31875,
+      "y": 0.34,
+      "confidence": 0.5053,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 77,
+      "x": 0.04875,
+      "y": 0.54833,
+      "confidence": 0.5052,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 78,
+      "x": 0.94,
+      "y": 0.57833,
+      "confidence": 0.5046,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 79,
+      "x": 0.99875,
+      "y": 0.42333,
+      "confidence": 0.5042,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 80,
+      "x": 0.5725,
+      "y": 0.92667,
+      "confidence": 0.5029,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 81,
+      "x": 0.54375,
+      "y": 0.35167,
+      "confidence": 0.5019,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 82,
+      "x": 0.11,
+      "y": 0.41,
+      "confidence": 0.4989,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 83,
+      "x": 0.01875,
+      "y": 0.69833,
+      "confidence": 0.4981,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 84,
+      "x": 0.14875,
+      "y": 0.49,
+      "confidence": 0.4953,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 85,
+      "x": 0.27,
+      "y": 0.325,
+      "confidence": 0.4948,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 86,
+      "x": 0.8725,
+      "y": 0.91333,
+      "confidence": 0.4906,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 87,
+      "x": 0.03875,
+      "y": 0.22667,
+      "confidence": 0.4875,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 88,
+      "x": 0.8275,
+      "y": 0.905,
+      "confidence": 0.4785,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 89,
+      "x": 0.05875,
+      "y": 0.80833,
+      "confidence": 0.4763,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 90,
+      "x": 0.3375,
+      "y": 0.74333,
+      "confidence": 0.4699,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 91,
+      "x": 0.36625,
+      "y": 0.875,
+      "confidence": 0.4534,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 92,
+      "x": 0.445,
+      "y": 0.22667,
+      "confidence": 0.4525,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 93,
+      "x": 0.385,
+      "y": 0.225,
+      "confidence": 0.4466,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 94,
+      "x": 0.98875,
+      "y": 0.47333,
+      "confidence": 0.446,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 95,
+      "x": 0.2725,
+      "y": 0.62667,
+      "confidence": 0.4356,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 96,
+      "x": 0.58625,
+      "y": 0.15833,
+      "confidence": 0.4246,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 97,
+      "x": 0.485,
+      "y": 0.79167,
+      "confidence": 0.4227,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 98,
+      "x": 0.21375,
+      "y": 0.085,
+      "confidence": 0.4158,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 99,
+      "x": 0.6475,
+      "y": 0.815,
+      "confidence": 0.4148,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 100,
+      "x": 0.71375,
+      "y": 0.84167,
+      "confidence": 0.4116,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 101,
+      "x": 0.2125,
+      "y": 0.205,
+      "confidence": 0.4093,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 102,
+      "x": 0.375,
+      "y": 0.50667,
+      "confidence": 0.4069,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 103,
+      "x": 0.19625,
+      "y": 0.665,
+      "confidence": 0.3938,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 104,
+      "x": 0.78875,
+      "y": 0.31333,
+      "confidence": 0.387,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 105,
+      "x": 0.735,
+      "y": 0.415,
+      "confidence": 0.3845,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 106,
+      "x": 0.55375,
+      "y": 0.13167,
+      "confidence": 0.3827,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 107,
+      "x": 0.32125,
+      "y": 0.55333,
+      "confidence": 0.3767,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 108,
+      "x": 0.265,
+      "y": 0.69167,
+      "confidence": 0.3752,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 109,
+      "x": 0.23375,
+      "y": 0.43167,
+      "confidence": 0.373,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 110,
+      "x": 0.14375,
+      "y": 0.315,
+      "confidence": 0.3651,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 111,
+      "x": 0.44125,
+      "y": 0.125,
+      "confidence": 0.3607,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 112,
+      "x": 0.26375,
+      "y": 0.84333,
+      "confidence": 0.358,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 113,
+      "x": 0.15375,
+      "y": 0.22833,
+      "confidence": 0.3571,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 114,
+      "x": 0.0325,
+      "y": 0.04667,
+      "confidence": 0.3547,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 115,
+      "x": 0.1975,
+      "y": 0.155,
+      "confidence": 0.3454,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 116,
+      "x": 0.2575,
+      "y": 0.11,
+      "confidence": 0.3416,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 117,
+      "x": 0.2325,
+      "y": 0.38,
+      "confidence": 0.3343,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 118,
+      "x": 0.26875,
+      "y": 0.52667,
+      "confidence": 0.3218,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 119,
+      "x": 0.3025,
+      "y": 0.87,
+      "confidence": 0.3194,
+      "type": "ledge",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 120,
+      "x": 0.7575,
+      "y": 0.89667,
+      "confidence": 0.318,
+      "type": "feature",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 121,
+      "x": 0.305,
+      "y": 0.48167,
+      "confidence": 0.3109,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    },
+    {
+      "id": 122,
+      "x": 0.31,
+      "y": 0.105,
+      "confidence": 0.3027,
+      "type": "pocket",
+      "color": "",
+      "group": ""
+    }
+  ],
+  "routes": [
+    {
+      "id": "easy-1",
+      "difficulty": "easy",
+      "color": "#22C55E",
+      "hold_ids": [
+        52,
+        40,
+        66,
+        49,
+        92,
+        111
+      ],
+      "points": [
+        {
+          "x": 0.42875,
+          "y": 0.67833,
+          "role": "start"
+        },
+        {
+          "x": 0.43875,
+          "y": 0.595,
+          "role": "hold"
+        },
+        {
+          "x": 0.43875,
+          "y": 0.475,
+          "role": "hold"
+        },
+        {
+          "x": 0.4275,
+          "y": 0.31667,
+          "role": "hold"
+        },
+        {
+          "x": 0.445,
+          "y": 0.22667,
+          "role": "hold"
+        },
+        {
+          "x": 0.44125,
+          "y": 0.125,
+          "role": "finish"
+        }
+      ],
+      "metrics": {
+        "hold_count": 6,
+        "mean_reach": 0.0837,
+        "max_reach": 0.1193,
+        "lateral_ratio": 0.1024,
+        "estimated_score": 0.321,
+        "estimated_label": "easy"
+      }
+    },
+    {
+      "id": "medium-1",
+      "difficulty": "medium",
+      "color": "#F59E0B",
+      "hold_ids": [
+        38,
+        70,
+        17,
+        51,
+        96
+      ],
+      "points": [
+        {
+          "x": 0.53,
+          "y": 0.67,
+          "role": "start"
+        },
+        {
+          "x": 0.5975,
+          "y": 0.52,
+          "role": "hold"
+        },
+        {
+          "x": 0.6025,
+          "y": 0.42167,
+          "role": "hold"
+        },
+        {
+          "x": 0.605,
+          "y": 0.22667,
+          "role": "hold"
+        },
+        {
+          "x": 0.58625,
+          "y": 0.15833,
+          "role": "finish"
+        }
+      ],
+      "metrics": {
+        "hold_count": 5,
+        "mean_reach": 0.1015,
+        "max_reach": 0.1463,
+        "lateral_ratio": 0.2443,
+        "estimated_score": 0.421,
+        "estimated_label": "medium"
+      }
+    },
+    {
+      "id": "hard-1",
+      "difficulty": "hard",
+      "color": "#EF4444",
+      "hold_ids": [
+        38,
+        13,
+        48,
+        60,
+        106
+      ],
+      "points": [
+        {
+          "x": 0.53,
+          "y": 0.67,
+          "role": "start"
+        },
+        {
+          "x": 0.51,
+          "y": 0.49,
+          "role": "hold"
+        },
+        {
+          "x": 0.48875,
+          "y": 0.43833,
+          "role": "hold"
+        },
+        {
+          "x": 0.5325,
+          "y": 0.21667,
+          "role": "hold"
+        },
+        {
+          "x": 0.55375,
+          "y": 0.13167,
+          "role": "finish"
+        }
+      ],
+      "metrics": {
+        "hold_count": 5,
+        "mean_reach": 0.1049,
+        "max_reach": 0.1719,
+        "lateral_ratio": 0.2632,
+        "estimated_score": 0.434,
+        "estimated_label": "medium"
+      }
+    }
+  ],
+  "warnings": [],
+  "source": "generated"
+}
