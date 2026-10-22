@@ -262,15 +262,17 @@ MonoBehaviour:
   showAllHolds: 1
   selectedRouteId: 
   currentStep: 0
-  lineOffset: 0.004
   showOnScreenUI: 1
   targetPlane: 0
   surfaceLift: 0.01
-  lineWidth: 0.01
-  holdSize: 0.026
+  lineStyle: 0
+  routeLineWidth: 0.009
+  outlineWidth: 0.004
+  holdDotSize: 0.022
   endpointScale: 1.7
-  holdSideOffset: 0.03
-  handLead: 0.07
+  allHoldsDotSize: 0.014
+  lineOffset: 0.004
+  outlineColor: {r: 0, g: 0, b: 0, a: 0.55}
   footColor: {r: 1, g: 0.54, b: 0.24, a: 1}
 --- !u!1 &492513160
 GameObject:
@@ -871,15 +873,17 @@ MonoBehaviour:
   showAllHolds: 1
   selectedRouteId: 
   currentStep: 0
-  lineOffset: 0.004
   showOnScreenUI: 1
   targetPlane: 0
   surfaceLift: 0.01
-  lineWidth: 0.004
-  holdSize: 0.026
+  lineStyle: 0
+  routeLineWidth: 0.009
+  outlineWidth: 0.004
+  holdDotSize: 0.022
   endpointScale: 1.7
-  holdSideOffset: 0.03
-  handLead: 0.07
+  allHoldsDotSize: 0.014
+  lineOffset: 0.004
+  outlineColor: {r: 0, g: 0, b: 0, a: 0.55}
   footColor: {r: 1, g: 0.54, b: 0.24, a: 1}
 --- !u!4 &2062930383
 Transform:
@@ -909,16 +913,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee31dcf37ea59447b74ce7a2dee8e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverUrl: http://127.0.0.1:8765
+  serverUrl: '   http://10.247.212.212:8000/ar'
   timeoutSeconds: 60
+  connectTimeoutSeconds: 4
   routeRenderer: {fileID: 0}
   mode: outdoor
-  venue: Scanned walls
-  wallName: 
   maxRoutes: 6
   maxPhotoDimension: 1600
   targetWidth: 1
   showUI: 1
+  defaultFrame:
+    serializedVersion: 2
+    x: 0.07
+    y: 0.16
+    width: 0.86
+    height: 0.6
   previewDistance: 1
   lockTimeoutSeconds: 10
   onTrackingLost: 0
