@@ -94,6 +94,7 @@ public class WallScanner : MonoBehaviour
     private List<GCRouteSet> cached = new List<GCRouteSet>();
     private Vector2 scroll;
     private bool uploadingPending;
+    private string authToken = "";          // GoClimb login, handed over by the website's "Open in AR camera" link
 
     // ------------------------------------------------------------ lifecycle
 
@@ -104,6 +105,7 @@ public class WallScanner : MonoBehaviour
         if (routeRenderer == null) Debug.LogError("[WallScanner] No RouteRenderer found in the scene. Routes cannot be drawn.");
 
         serverUrl = PlayerPrefs.GetString("gc_server", serverUrl);
+        authToken = PlayerPrefs.GetString("gc_token", "");
         phoneOnly = PlayerPrefs.GetInt("gc_phone_only", 0) == 1;
         mode = PlayerPrefs.GetString("gc_mode", mode);
         venue = PlayerPrefs.GetString("gc_venue", "");
@@ -754,6 +756,12 @@ public class WallScanner : MonoBehaviour
     private IEnumerator UploadPending(bool loud)
     {
         if (uploadingPending) yield break;
+        if (string.IsNullOrEmpty(authToken))
+        {
+            if (loud && LocalWallStore.PendingFiles().Count > 0)
+                Toast("Uploads are waiting. Open the AR camera from the GoClimb website once to sign in.");
+            yield break;                              // keep them queued until the user is signed in
+        }
         uploadingPending = true;
         int sent = 0, failed = 0;
         foreach (string path in LocalWallStore.PendingFiles())
@@ -842,6 +850,7 @@ public class WallScanner : MonoBehaviour
         byte[] jpg = null;
         using (var www = UnityWebRequest.Get(serverUrl.TrimEnd('/') + "/photo/" + wallId))
         {
+            AddAuth(www);
             www.timeout = timeoutSeconds;
             yield return www.SendWebRequest();
             if (serial != requestSerial) { busy = false; yield break; }
@@ -851,6 +860,62 @@ public class WallScanner : MonoBehaviour
         LocalWallStore.CacheWall(doc, jpg);            // available offline from now on
         StartLoadedSession(doc, jpg);
         busy = false;
+    }
+
+    // ------------------------------------------------------------ deep links (website "Open in AR camera")
+
+    /// <summary>goclimb://wall/&lt;id&gt;?server=... : open that wall straight in the AR camera.</summary>
+    public void OpenWallFromLink(string wallId, string server)
+    {
+        UseServer(server);
+        if (busy) { Toast("Busy - tap the link on the website again in a moment."); return; }
+        bool offline = Application.internetReachability == NetworkReachability.NotReachable;
+        if (offline || phoneOnly)
+        {
+            foreach (var doc in LocalWallStore.CachedWalls())
+                if (doc != null && doc.wall_id == wallId) { LoadCached(doc); return; }
+            if (offline) { Toast("You're offline and this wall isn't saved on the phone yet."); return; }
+        }
+        StartCoroutine(LoadRoutine(wallId));      // downloads, caches for offline, starts the AR session
+    }
+
+    /// <summary>goclimb://scan?server=... : open the camera ready to scan a new wall.</summary>
+    public void OpenScannerFromLink(string server)
+    {
+        UseServer(server);
+        if (busy) return;
+        EndSession(null);
+        panel = Panel.None;
+        Toast("Frame the wall and tap the shutter to scan it.");
+    }
+
+    /// <summary>The website hands over the user's GoClimb login (a token) inside the AR link.</summary>
+    public void UseAuthToken(string token)
+    {
+        if (string.IsNullOrEmpty(token) || token == authToken) return;
+        authToken = token.Trim();
+        PlayerPrefs.SetString("gc_token", authToken);
+        PlayerPrefs.Save();
+        Toast("Signed in from the GoClimb website.");
+        StartCoroutine(UploadPending(false));         // send scans that were saved while offline
+    }
+
+    private void AddAuth(UnityWebRequest www)
+    {
+        if (!string.IsNullOrEmpty(authToken)) www.SetRequestHeader("Authorization", "Token " + authToken);
+    }
+
+    /// <summary>The website tells the app where it lives, so nobody has to type the server address.</summary>
+    private void UseServer(string server)
+    {
+        if (string.IsNullOrEmpty(server)) return;
+        server = server.Trim().TrimEnd('/');
+        if (!(server.StartsWith("http://") || server.StartsWith("https://"))) return;
+        if (server == serverUrl) return;
+        serverUrl = server;
+        serverField = server;
+        PlayerPrefs.SetString("gc_server", serverUrl);
+        Toast("Connected to " + serverUrl);
     }
 
     private void LoadCached(GCRouteSet doc)
@@ -923,6 +988,7 @@ public class WallScanner : MonoBehaviour
                 www.SetRequestHeader("Content-Type", "application/json");
             }
             www.downloadHandler = new DownloadHandlerBuffer();
+            AddAuth(www);
             www.timeout = timeout;
             var op = www.SendWebRequest();
             float start = Time.realtimeSinceStartup;
