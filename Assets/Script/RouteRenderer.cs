@@ -84,9 +84,31 @@ public class RouteRenderer : MonoBehaviour
 
     public void DrawRouteSet(Transform parent, GCRouteSet set)
     {
+        // A different wall (or new route data): start on this climber's best-matching route, once.
+        string key = set == null ? "" : (set.wall_id + "|" + set.updated_at + "|" + (set.routes == null ? 0 : set.routes.Count));
+        if (key != autoSelectedFor)
+        {
+            autoSelectedFor = key;
+            selectedRouteId = "";
+            currentStep = 0;
+            if (set != null && set.routes != null)
+                foreach (var r in set.routes)
+                    if (r != null && r.rec_rank == 1) { selectedRouteId = r.id; break; }
+        }
         lastParent = parent;
         currentSet = set;
         Redraw();
+    }
+
+    private string autoSelectedFor = null;
+
+    /// <summary>Chip text: "Best 6A", "2nd 5C", "6B" or the route id when it has no grade yet.</summary>
+    private static string ChipLabel(GCRoute r)
+    {
+        string g = string.IsNullOrEmpty(r.grade) ? r.id : r.grade;
+        if (r.rec_rank == 1) return "Best " + g;
+        if (r.rec_rank == 2) return "2nd " + g;
+        return g;
     }
 
     public void GenerateAndDrawLocalRoutes(Transform parent)
@@ -252,6 +274,11 @@ public class RouteRenderer : MonoBehaviour
         float rowRight = w - 96f;                    // keep clear of the scanner's Settings button (top right)
         if (x + 150f < rowRight) GUI.Label(new Rect(x, y - 1, 220, 20), "estimated, not official", GCUi.Small);
         y += 24;
+        if (!string.IsNullOrEmpty(currentSet.recommendation))
+        {
+            GUI.Label(new Rect(8, y - 2, Mathf.Min(rowRight, maxW) - 8, 20), currentSet.recommendation, GCUi.Small);
+            y += 22;
+        }
 
         // route chips
         x = 6;
@@ -261,14 +288,16 @@ public class RouteRenderer : MonoBehaviour
         foreach (var r in currentSet.routes)
         {
             if (r == null || r.points == null) continue;
-            if (x + 54 > Mathf.Min(rowRight, 6 + maxW)) { x = 6; y += 36; }
+            string chip = ChipLabel(r);
+            float cw = Mathf.Max(50f, 28f + chip.Length * 8.5f);
+            if (x + cw + 4 > Mathf.Min(rowRight, 6 + maxW)) { x = 6; y += 36; }
             Color c;
             if (!ColorUtility.TryParseHtmlString(r.color, out c)) c = Color.white;
             bool on = r.id == selectedRouteId;
-            var rect = new Rect(x, y, 50, 32);
-            if (GUI.Button(rect, r.id, on ? GCUi.PillOn : GCUi.Chip)) { selectedRouteId = on ? "" : r.id; currentStep = 0; }
+            var rect = new Rect(x, y, cw, 32);
+            if (GUI.Button(rect, "   " + chip, on ? GCUi.PillOn : GCUi.Chip)) { selectedRouteId = on ? "" : r.id; currentStep = 0; }
             GCUi.Dot(new Vector2(rect.x + 9, rect.y + 16), 9, c);
-            x += 54;
+            x += cw + 4;
         }
         y += 38;
 
@@ -279,12 +308,19 @@ public class RouteRenderer : MonoBehaviour
             currentStep = Mathf.Clamp(currentStep, 0, sel.points.Count - 1);
             var p = sel.points[currentStep];
             string limb = string.IsNullOrEmpty(p.limb) ? "" : "  ·  " + p.limb.Replace("_", " ") + (p.limb_status == "confirmed" ? "" : " (est.)");
-            GUI.Box(new Rect(6, y, maxW, 92), GUIContent.none, GCUi.Panel);
-            GUI.Label(new Rect(14, y + 6, maxW - 16, 22), "<b>" + sel.id + "</b>  " + sel.difficulty + " (estimated)  ·  " + sel.points.Count + " holds", GCUi.Label);
+            bool hasWhy = !string.IsNullOrEmpty(sel.rec_reason);
+            float ph = hasWhy ? 114f : 92f, by = hasWhy ? 76f : 54f;
+            string title = "<b>" + (string.IsNullOrEmpty(sel.name) ? sel.id : sel.name) + "</b>  "
+                         + (string.IsNullOrEmpty(sel.grade) ? sel.difficulty + " (estimated)" : sel.grade)
+                         + (sel.rec_rank == 1 ? "  ·  best match for you" : sel.rec_rank == 2 ? "  ·  2nd match" : "")
+                         + "  ·  " + sel.points.Count + " holds";
+            GUI.Box(new Rect(6, y, maxW, ph), GUIContent.none, GCUi.Panel);
+            GUI.Label(new Rect(14, y + 6, maxW - 16, 22), title, GCUi.Label);
             GUI.Label(new Rect(14, y + 28, maxW - 16, 22), (currentStep + 1) + "/" + sel.points.Count + "  " + sel.steps[currentStep].text + limb, GCUi.Label);
-            if (GUI.Button(new Rect(12, y + 54, 90, 32), "< Prev", GCUi.Button)) currentStep = Mathf.Max(0, currentStep - 1);
-            if (GUI.Button(new Rect(108, y + 54, 90, 32), "Next >", GCUi.Button)) currentStep = Mathf.Min(sel.points.Count - 1, currentStep + 1);
-            y += 98;
+            if (hasWhy) GUI.Label(new Rect(14, y + 50, maxW - 16, 22), sel.rec_reason, GCUi.Small);
+            if (GUI.Button(new Rect(12, y + by, 90, 32), "< Prev", GCUi.Button)) currentStep = Mathf.Max(0, currentStep - 1);
+            if (GUI.Button(new Rect(108, y + by, 90, 32), "Next >", GCUi.Button)) currentStep = Mathf.Min(sel.points.Count - 1, currentStep + 1);
+            y += ph + 6;
         }
         UiBottom = y;
     }

@@ -51,6 +51,12 @@ public class GCRoute
     public List<GCStep> steps;
     public GCMetrics metrics;
     public bool edited;
+    // Set by the GoClimb website (admin-reviewed route info + personal recommendation for the signed-in climber)
+    public string name;         // route name ("" = use id)
+    public string grade;        // official grade, e.g. "6A" ("" = not graded yet)
+    public string style;        // boulder / sport / toprope / trad
+    public int rec_rank;        // 1 = best match for this climber, 2 = second best, 0 = not recommended
+    public string rec_reason;   // why it was recommended
 }
 
 [Serializable]
@@ -85,6 +91,7 @@ public class GCRouteSet
     public List<GCHold> holds;
     public List<GCRoute> routes;
     public List<string> warnings;
+    public string recommendation;   // summary from the website, e.g. "Best matches for you (your max grade 6B)."
 }
 
 [Serializable]
